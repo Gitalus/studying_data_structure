@@ -27,7 +27,6 @@ for num in array:
     x = sum - num
     if x in unordered_set:
         resultado.append((num, x))
-    else:
-        unordered_set.add(num)
+    unordered_set.add(num)
 
 print(resultado)
