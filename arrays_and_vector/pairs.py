@@ -1,5 +1,5 @@
 # Pairs
-# Find the pairs of distinct integer that sum a S result
+# Find the pairs of distinct integer that objetivo a S result
 
 # Input:
 # array = [10, 5, 2, 3, -6, 9, 11]
@@ -19,14 +19,25 @@ una búsqueda binaria. """
 hacer la búsqueda en O(1), a diferencia de O(logN). De esta forma podríamos
 resolver el problema en O(N). """
 
+
+from typing import List
 array = [10, 5, 2, 3, -6, 9, 11]
 sum = 4
-unordered_set = set()  # Es como un hash map sin llaves
-resultado = []
-for num in array:
-    x = sum - num
-    if x in unordered_set:
-        resultado.append((num, x))
-    unordered_set.add(num)
 
-print(resultado)
+
+def find_pair(array: List[int], objetivo: int) -> List[tuple]:
+    """Encuentra el par de integrales tal que su suma resulta en el objetivo dado como argumento."""
+
+    unordered_set = set()  # Es como un hash map sin llaves
+    resultado = []
+
+    for num in array:
+        x = objetivo - num
+        if x in unordered_set:
+            resultado.append((num, x))
+        unordered_set.add(num)
+
+    return resultado
+
+
+print(find_pair(array, sum))
