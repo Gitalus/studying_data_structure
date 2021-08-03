@@ -34,7 +34,7 @@ def triplets(array: List[int], targetSum: int) -> List[List]:
     resultados = []
     # Tomar cada array[i], pair sum el resto del array
     # El resto del array debe contener al menos dos números
-    for i in range(n - 3):
+    for i in range(n - 2):
         j = i + 1
         k = n - 1
 
