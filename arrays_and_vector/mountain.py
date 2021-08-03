@@ -19,23 +19,23 @@ def highest_mountain(array: List) -> int:
     """Encuentra la montaña más larga dado un array."""
     n = len(array)
     largest = 0
-    i = 1
-    while i < n - 1:
-        # check array[i] is a peak
-        if array[i] > array[i - 1] and array[i] > array[i + 1]:
+    index = 1
+    while index < n - 1:
+        # Revisa si el número en array[index] es una cima
+        if array[index] > array[index - 1] and array[index] > array[index + 1]:
             count = 1
-            j = i
+            left_index = index
             # Cuenta hacia atrás
-            while j >= 1 and array[j] > array[j - 1]:
-                j -= 1
+            while left_index >= 1 and array[left_index] > array[left_index - 1]:
+                left_index -= 1
                 count += 1
             # Cuenta hacia adelante
-            while i < (n - 1) and array[i] > array[i + 1]:
-                i += 1
+            while index < (n - 1) and array[index] > array[index + 1]:
+                index += 1
                 count += 1
             largest = max(largest, count)
         else:
-            i += 1
+            index += 1
     return largest
 
 
