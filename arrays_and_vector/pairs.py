@@ -20,11 +20,14 @@ hacer la búsqueda en O(1), a diferencia de O(logN). De esta forma podríamos
 resolver el problema en O(N). """
 
 array = [10, 5, 2, 3, -6, 9, 11]
-suma = 4
+sum = 4
 unordered_set = set()  # Es como un hash map sin llaves
+resultado = []
 for num in array:
-    x = suma - num
+    x = sum - num
     if x in unordered_set:
-        print((num, x))
+        resultado.append((num, x))
     else:
         unordered_set.add(num)
+
+print(resultado)
