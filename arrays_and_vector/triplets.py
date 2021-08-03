@@ -28,20 +28,6 @@ si la suma es inferior al target, se aumenta el index del extremo menor. Por lo 
 es posible encontrar trios de números en tiempo O(N^2). """
 
 
-def extremes_pairs(array: List[int], target: int) -> List:
-    left = 0
-    right = len(array) - 1
-    while left < right:
-        suma = array[left] + array[right]
-        if suma == target:
-            return [array[left], array[right]]
-        elif suma > target:
-            right -= 1
-        elif suma < target:
-            left += 1
-    return []
-
-
 def triplets(array: List[int], targetSum: int) -> List[List]:
     n = len(array)
     array.sort()
