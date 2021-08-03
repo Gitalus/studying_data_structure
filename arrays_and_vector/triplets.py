@@ -29,6 +29,7 @@ es posible encontrar trios de números en tiempo O(N^2). """
 
 
 def triplets(array: List[int], targetSum: int) -> List[List]:
+    """Encuentra 3 números que sumen el objetivo dado."""
     n = len(array)
     array.sort()
     resultados = []
