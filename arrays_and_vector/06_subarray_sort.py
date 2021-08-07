@@ -15,8 +15,7 @@ from typing import List
 comparar cada extremo para ver las diferencias, hasta llegar a un y cada vez
 acercandose al centro del array. Esto toma una complejidad de tiempo O(NlogN). """
 
-""" 1. La intuición también nos dice que podría resolverse en una orden de O(N).
-Una posible solución lineal es encontrar el menor número en desorden y el mayor.
+""" 1. Una posible solución lineal es encontrar el menor número en desorden y el mayor.
 Luego iterar una segunda vez para determinar en que posición debería ser insertado
 el menor número y el mayor. Es posible que obtengamos una solucións O(2N) o O(3N).
 Pero la esencia de O() nos dice que sigue siendo una solución lineal. """
