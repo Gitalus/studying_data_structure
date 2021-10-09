@@ -17,19 +17,34 @@
 
 
 // opción 3:
-const array1 = ['a', 'b', 'c', 'x']
-const array2 = ['z', 'y', 'x']
+const array1 = ['a', 'b', 'c', 'x'];
+const array2 = ['z', 'y', 'i'];
 
-function containsCommonitems(arr1, arr2) {
+function containsCommonItemsHashSet(arr1, arr2) {
 
-    let set1 = new Set(arr1)
+    let set1 = new Set(arr1);
 
-    for (const num of arr2) {
-        if (set1.has(num)) {
-            return true
+    for (let index = 0; index < arr2.length; index++) {
+        if (set1.has(arr2[index])) {
+            return true;
         }
     }
-    return false
+    return false;
 }
 
-console.log(containsCommonitems(array1, array2))
+function contansComonItemsHashMap(arr1, arr2) {
+    // fromEntries solo funciona con array-like par [llave, valor]
+    const hashMap = Object.fromEntries(arr1.map((entry) => [entry, entry]))
+    for (let index = 0; index < arr2.length; index++) {
+        const valor = arr2[index];
+        if (hashMap[valor]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+console.log(contansComonItemsHashMap(array1, array2));
+console.log(containsCommonItemsHashSet(array1, array2));
