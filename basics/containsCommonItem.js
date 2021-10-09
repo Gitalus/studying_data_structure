@@ -34,7 +34,12 @@ function containsCommonItemsHashSet(arr1, arr2) {
 
 function contansComonItemsHashMap(arr1, arr2) {
     // fromEntries solo funciona con array-like par [llave, valor]
-    const hashMap = Object.fromEntries(arr1.map((entry) => [entry, entry]))
+    const hashMap = {}
+    for (let index = 0; index < arr1.length; index++) {
+        const value = arr1[index]
+        hashMap[value] = true
+    }
+
     for (let index = 0; index < arr2.length; index++) {
         const valor = arr2[index];
         if (hashMap[valor]) {
