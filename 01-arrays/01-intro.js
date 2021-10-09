@@ -14,3 +14,8 @@ strings.unshift('z')
 // shift O(n)
 // Se llama shift porque tiene que correr todos los valores para insertar el primero
 strings.shift()
+
+// splice O(n)
+strings.splice(2, 0, 'x')
+
+console.log(strings);
