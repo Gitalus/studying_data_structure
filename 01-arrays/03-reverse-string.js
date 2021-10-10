@@ -17,10 +17,12 @@ function reverseUsingMethods(string) {
 
 // slowest:
 function reverseWithRecursion(string) {
-    if (string === "") {
-        return "";
+    if (string === '') {
+        return '';
     }
     return reverseWithRecursion(string.substr(1)) + string.charAt(0);
+    // oneline:
+    // return string === '' ? '' : reverseWithRecursion(string.substr(1)) + string.charAt(0);
 }
 
 console.log('First method:\n\t', reverseString('Hi my name is Italo'));
