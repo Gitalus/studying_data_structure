@@ -3,6 +3,7 @@
 // olatI si eman ym iH'
 
 function reverseString(string) {
+    if (!string || string.length < 2 || typeof string !== 'string') return string;
     let newString = '';
     let size = string.length;
     for (let index = size - 1; index >= 0; index--) {
@@ -12,12 +13,14 @@ function reverseString(string) {
 }
 
 function reverseUsingMethods(string) {
+    if (!string || string.length < 2 || typeof string !== 'string') return string;
     // return string.split('').reverse().join('');
     return [...string].reverse().join('');
 }
 
 // slowest:
 function reverseWithRecursion(string) {
+    if (!string || string.length < 2 || typeof string !== 'string') return string;
     if (string === '') {
         return '';
     }
