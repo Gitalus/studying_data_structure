@@ -1,7 +1,11 @@
+
+
+
 class Player {
     constructor(name, type) {
         this.name = name;
         this.type = type;
+        console.log(this); // Wizard {}
     }
 
     introduce() {
