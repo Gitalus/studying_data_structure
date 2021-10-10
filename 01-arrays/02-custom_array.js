@@ -17,9 +17,25 @@ class MyArray {
 
     pop() {
         const lastItem = this.data[this.length - 1];
+        // delete también elimina pares de llave valor en objetos
         delete this.data[this.length - 1];
         this.length--;
         return lastItem;
+    }
+
+    delete(index) {
+        const item = this.data[index];
+        this.shiftItems(index);
+        return item;
+    }
+
+    shiftItems(index) {
+        // shift is from right to left, so is removing a index
+        for (let i = index; i < this.length - 1; i++) {
+            this.data[i] = this.data[i + 1];
+        }
+        delete this.data[this.length - 1];
+        this.length--;
     }
 }
 
