@@ -8,7 +8,15 @@ class MyArray {
     get(index) {
         return this.data[index];
     }
+
+    push(item) {
+        this.data[this.length] = item;
+        this.length++;
+        return this.length;
+    }
 }
 
 const newArray = new MyArray();
+newArray.push('hi');
+newArray.push('you');
 console.log(newArray);
