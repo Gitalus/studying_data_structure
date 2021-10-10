@@ -14,9 +14,19 @@ class MyArray {
         this.length++;
         return this.length;
     }
+
+    pop() {
+        const lastItem = this.data[this.length - 1];
+        delete this.data[this.length - 1];
+        this.length--;
+        return lastItem;
+    }
 }
 
 const newArray = new MyArray();
 newArray.push('hi');
 newArray.push('you');
+const lasItem = newArray.pop();
+
+console.log(lasItem);
 console.log(newArray);
