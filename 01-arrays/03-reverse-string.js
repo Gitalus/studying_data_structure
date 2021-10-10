@@ -11,4 +11,9 @@ function reverseString(string) {
     return newString;
 }
 
-console.log(reverseString('Hi my name is Italo'));
+function reverseUsingMethods(string) {
+    return string.split('').reverse().join('');
+}
+
+console.log('First method:\n\t', reverseString('Hi my name is Italo'));
+console.log('Second method:\n\t', reverseUsingMethods('Hi my name is Italo'));
