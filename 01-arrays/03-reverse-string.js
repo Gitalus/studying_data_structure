@@ -12,7 +12,8 @@ function reverseString(string) {
 }
 
 function reverseUsingMethods(string) {
-    return string.split('').reverse().join('');
+    // return string.split('').reverse().join('');
+    return [...string].reverse().join('');
 }
 
 // slowest:
