@@ -15,5 +15,14 @@ function reverseUsingMethods(string) {
     return string.split('').reverse().join('');
 }
 
+// slowest:
+function reverseWithRecursion(string) {
+    if (string === "") {
+        return "";
+    }
+    return reverseWithRecursion(string.substr(1)) + string.charAt(0);
+}
+
 console.log('First method:\n\t', reverseString('Hi my name is Italo'));
 console.log('Second method:\n\t', reverseUsingMethods('Hi my name is Italo'));
+console.log('Third method:\n\t', reverseWithRecursion('Hi my name is Italo'));
