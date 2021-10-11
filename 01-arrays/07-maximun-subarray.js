@@ -28,4 +28,4 @@ function maxSumSubstr(nums) {
     return max;
 }
 
-console.log(maxSumSubstr([-4, -2, -5, -1, -7]));
+console.log(maxSumSubstr([-4, -2, -5, -7]));
