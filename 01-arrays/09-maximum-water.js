@@ -1,6 +1,6 @@
 const array1 = [7, 1, 2, 3, 9];
 
-var maxArea = function (height) {
+var maxAreaBruteForce = function (height) {
     let size = height.length;
     let maxAreaWater = 0;
 
@@ -14,4 +14,26 @@ var maxArea = function (height) {
     return maxAreaWater;
 };
 
+
+// shifting pointers
+var maxArea = function (height) {
+    let maxAreaWater = 0;
+    let left = 0,
+        right = height.length - 1;
+    while (left < right) {
+        let minHeight = Math.min(height[left], height[right]);
+        let areaTemp = minHeight * (right - left);
+        maxAreaWater = Math.max(areaTemp, maxAreaWater);
+
+        // if (height[left] > height[right]) {
+        //     right--;
+        // } else {
+        //     left++;
+        // }
+        height[left] > height[right] ? right-- : left++;
+    }
+    return maxAreaWater;
+};
+
+console.log(maxAreaBruteForce(array1)); // 28
 console.log(maxArea(array1)); // 28
