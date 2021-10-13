@@ -25,11 +25,6 @@ var maxArea = function (height) {
         let areaTemp = minHeight * (right - left);
         maxAreaWater = Math.max(areaTemp, maxAreaWater);
 
-        // if (height[left] > height[right]) {
-        //     right--;
-        // } else {
-        //     left++;
-        // }
         height[left] > height[right] ? right-- : left++;
     }
     return maxAreaWater;
