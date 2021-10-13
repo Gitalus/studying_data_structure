@@ -6,10 +6,9 @@ var maxArea = function (height) {
 
     for (let start = 0; start < size - 1; start++) {
         for (let corredor = start + 1; corredor < size; corredor++) {
-            const area = Math.min(height[start], height[corredor]) * (corredor - start);
-            if (area > maxAreaWater) {
-                maxAreaWater = area;
-            }
+            const minHeight = Math.min(height[start], height[corredor])
+            const area = minHeight * (corredor - start);
+            maxAreaWater = Math.max(area, maxAreaWater)
         }
     }
     return maxAreaWater;
