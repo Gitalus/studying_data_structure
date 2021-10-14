@@ -3,22 +3,25 @@
 const stringA = "ab#c";
 const stringB = "az#c";
 
-function compareString(stringA, stringB) {
-    const sizeA = stringA.length;
-    const sizeB = stringB.length;
-    let parsedA = "";
-    let parsedB = "";
-    for (let i = sizeA - 1, hashFound = sizeA - 1; i >= 0; i--) {
-        if (stringA[i] !== "#") {
-            if (stringA[hashFound] !== "#") {
-                parsedA = stringA[i] + parsedA;
-            }
-            hashFound--;
+function removeBackspaces(string) {
+    const sizeStr = string.length;
+    let parsedStr = "";
+    for (let i = sizeStr - 1, hashFound = sizeStr - 1; i >= 0; i--) {
+        if (string[i] !== "#" && string[hashFound--] !== "#") {
+            parsedStr = string[i] + parsedStr;
         }
-        else if (stringA[hashFound] !== "#") {
+        else if (string[hashFound] !== "#") {
             hashFound--;
         }
     }
-    return parsedA;
+    return parsedStr;
+}
+
+function compareString(stringA, stringB) {
+
+    let parsedA = removeBackspaces(stringA);
+    let parsedB = removeBackspaces(stringB);
+
+    return parsedA === parsedB;
 }
 console.log(compareString(stringA, stringB));
