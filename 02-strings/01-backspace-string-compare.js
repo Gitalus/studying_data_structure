@@ -1,31 +1,28 @@
 const stringA = "ab#c";
 const stringB = "az#c";
 
+function removeBackspaces(string) {
+    let stringList = [];
+    for (const letter of string) {
+        if (letter !== "#") {
+            stringList.push(letter);
+        }
+        else {
+            stringList.pop();
+        }
+    }
+    return stringList
+}
+
 function compareString(stringA, stringB) {
-    let stringListA = [];
-    let stringListB = [];
+    let stringListA = removeBackspaces(stringA);
+    let stringListB = removeBackspaces(stringB);
 
-    for (const letter of stringA) {
-        if (letter !== "#") {
-            stringListA.push(letter);
-        }
-        else {
-            stringListA.pop();
-        }
-    }
-
-    for (const letter of stringB) {
-        if (letter !== "#") {
-            stringListB.push(letter);
-        }
-        else {
-            stringListB.pop();
-        }
-    }
 
     if (stringListA.length !== stringListB.length) return false;
     return stringListA.join('') === stringListB.join('') ? true : false;
 
 }
+
 
 console.log(compareString(stringA, stringB));
