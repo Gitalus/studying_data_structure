@@ -20,7 +20,7 @@ function compareString(stringA, stringB) {
 
 
     if (aStringParsed.length !== bStringParsed.length) return false;
-    return aStringParsed === bStringParsed ? true : false;
+    return aStringParsed === bStringParsed;
 
 }
 
