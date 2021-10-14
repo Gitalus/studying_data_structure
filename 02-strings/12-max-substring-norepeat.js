@@ -1,4 +1,4 @@
-const string = "edcfgcdtjudks";
+const s = "edcfgcdtjudks";
 
 function lengthOfLongestSubstring(string) {
     let strLength = string.length;
@@ -22,4 +22,22 @@ function lengthOfLongestSubstring(string) {
     return longest;
 }
 
-console.log(lengthOfLongestSubstring(string));
+// Sliding window
+var lengthOfLongestSubstring = function (s) {
+    let strLength = s.length;
+    if (strLength <= 1) return strLength;
+    const seenChars = {};
+    let left = 0, longest = 0;
+    for (let right = 0; right < strLength; right++) {
+        const currentChar = s[right];
+        const prevSeenChar = seenChars[currentChar];
+        if (prevSeenChar >= left) {
+            left = prevSeenChar + 1;
+        }
+        seenChars[currentChar] = right;
+        longest = Math.max(longest, (right - left + 1));
+    }
+    return longest;
+};
+
+console.log(lengthOfLongestSubstring(s));
