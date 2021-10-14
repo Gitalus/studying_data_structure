@@ -15,12 +15,17 @@ function removeBackspaces(string) {
 }
 
 function compareString(stringA, stringB) {
-    let aStringParsed = removeBackspaces(stringA).join('');
-    let bStringParsed = removeBackspaces(stringB).join('');
+    let aStringParsed = removeBackspaces(stringA);
+    let bStringParsed = removeBackspaces(stringB);
 
 
     if (aStringParsed.length !== bStringParsed.length) return false;
-    return aStringParsed === bStringParsed;
+    for (let i in aStringParsed) {
+        if (aStringParsed[i] !== bStringParsed[i]) {
+            return false;
+        }
+    }
+    return true;
 
 }
 
