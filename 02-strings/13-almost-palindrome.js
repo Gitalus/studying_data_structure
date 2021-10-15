@@ -1,15 +1,19 @@
 const testString = "race a car";
 
 function almostPalindrome(s) {
-    s = s.replace(/[^A-Za-z0-9]/g, "");
     function checkPalindrome(str) {
         let left = 0, right = str.length - 1;
+
         while (left <= right) {
             if (str[left++] !== str[right--]) return false;
         }
+
         return true;
     }
+
+    s = s.replace(/[^A-Za-z0-9]/g, "");
     let left = 0, right = s.length - 1;
+
     while (left <= right) {
         if (s[left] !== s[right]) {
             let temp1 = s.substr(0, left) + s.substr(left + 1);
@@ -18,6 +22,7 @@ function almostPalindrome(s) {
         }
         left++; right--;
     }
+
     return true;
 }
 
