@@ -1,24 +1,20 @@
-const testString = "race a car";
+const testString = "Race a car"; // raceacar
 
 function almostPalindrome(s) {
-    function checkPalindrome(str) {
-        let left = 0, right = str.length - 1;
+    function checkPalindrome(str, left, right) {
 
         while (left <= right) {
             if (str[left++] !== str[right--]) return false;
         }
-
         return true;
     }
 
-    s = s.replace(/[^A-Za-z0-9]/g, "");
+    s = s.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
     let left = 0, right = s.length - 1;
 
     while (left <= right) {
         if (s[left] !== s[right]) {
-            let temp1 = s.substr(0, left) + s.substr(left + 1);
-            let temp2 = s.substr(0, right) + s.substr(right + 1);
-            return checkPalindrome(temp1) || checkPalindrome(temp2);
+            return checkPalindrome(s, left + 1, right) || checkPalindrome(s, left, right - 1);
         }
         left++; right--;
     }
