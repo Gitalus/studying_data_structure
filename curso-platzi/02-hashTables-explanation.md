@@ -1,15 +1,13 @@
 ## Hash Tables
 
 En los hash tables, la 'key' pasa por una 'Hash function', esta function transforma
-la key que le pasamos en un número. Siempre que le pasemos la misma key,
-se generará el mismo número (hash), por esta razón los hash tables son rápidos
-para acceder a los valores.
-Pero estos valores se guardan en algo llamado 'Buckets', que es una tabla de valores con un respectivo hash,
-estos hash se guardan en el 'Bucket' al pasar una key por una hash function, luego
-serán la referencia para acceder rapidamente al valor.
+la key que le pasamos en hash, similar a un index de array. Siempre que le pasemos la misma key,
+se generará el hash, por esta razón los hash tables son rápidos para acceder a los valores,
+ya que se le pasa una key, se genera un hash, y ese hash apunta a una dirección de un 'Bucket',
+que se accede rapidamente a él, tal como en los arrays.
 
 Es decir, pasamos una key, se generará un hash, ese hash permitirá un rápido acceso
-al dato que guardamos como si fuera un array recibiendo el index.
+al dato que guardamos.
 
 Esto es muy rápido.
 
