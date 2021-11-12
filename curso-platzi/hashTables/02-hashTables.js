@@ -35,6 +35,28 @@ class HashTable {
         }
         return undefined;
     }
+
+    keys() {
+
+    }
+
+    delete(key) {
+        const addres = this.hashMethod(key);
+        const currentBucket = this.data[addres];
+
+        if (currentBucket) {
+            for (let i = 0; i < currentBucket.length; i++) {
+                if (currentBucket[i][0] === key) {
+                    const item = currentBucket[i];
+                    delete currentBucket[i];
+
+                    return item;
+                }
+            }
+        }
+
+        return undefined;
+    }
 }
 
 const myHashTable = new HashTable(50);
@@ -47,3 +69,6 @@ myHashTable.set("Nati", 1993);
 console.log(myHashTable);
 
 console.log(myHashTable.get('Nati'));
+
+console.log(myHashTable.delete('Nati'));
+console.log(myHashTable);
