@@ -53,6 +53,19 @@ class MySinglyLinkedList {
         return this;
     }
 
+    remove(index) {
+        if (index >= this.length) {
+            return;
+        }
+
+        const pointer = this.getFromIndex(index - 1);
+        const holdingPointer = pointer.next;
+        pointer.next = holdingPointer.next;
+        this.length--;
+
+        return this;
+    }
+
     getFromIndex(index) {
         let counter = 0;
         let currentNode = this.head;
