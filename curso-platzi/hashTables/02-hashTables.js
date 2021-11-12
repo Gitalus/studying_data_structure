@@ -37,7 +37,15 @@ class HashTable {
     }
 
     keys() {
-
+        const keys = [];
+        for (const buckets of this.data) {
+            if (buckets) {
+                for (const item of buckets) {
+                    keys.push(item[0]);
+                }
+            }
+        }
+        return keys;
     }
 
     delete(key) {
@@ -68,7 +76,4 @@ console.log(myHashTable);
 myHashTable.set("Nati", 1993);
 console.log(myHashTable);
 
-console.log(myHashTable.get('Nati'));
-
-console.log(myHashTable.delete('Nati'));
-console.log(myHashTable);
+console.log(myHashTable.keys());
