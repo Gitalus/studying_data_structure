@@ -19,8 +19,8 @@ class MySinglyLinkedList {
     append(value) {
         const newNode = new Node(value);
 
-        this.tail.next = newNode;
-        this.tail = newNode;
+        this.tail.next = newNode; // tail.next hace referencia a head.next en un inicio, luego al último nodo agregado
+        this.tail = newNode; // ahora tail apunta al nuevo nodo
         this.length++;
 
         return this;
@@ -28,18 +28,42 @@ class MySinglyLinkedList {
 
     preprend(value) {
         const newNode = new Node(value);
+
         newNode.next = this.head;
         this.head = newNode;
         this.length++;
 
         return this;
     }
+
+    insert(index, value) {
+        if (index >= this.length) {
+            return this.append(value);
+        }
+
+        const newNode = new Node(value);
+        const firstPointer = this.getFromIndex(index - 1);
+        newNode.next = firstPointer.next;
+        firstPointer.next = newNode;
+        // const holdingPointer = firstPointer.next;
+        // firstPointer.next = newNode;
+        // newNode.next = holdingPointer;
+        this.length++;
+
+        return this;
+    }
+
+    getFromIndex(index) {
+        let counter = 0;
+        let currentNode = this.head;
+
+        while (counter !== index) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+
+        return currentNode;
+    }
 }
 
 let myLinkedList = new MySinglyLinkedList(1);
-
-for (i = 2; i <= 5; i++) {
-    myLinkedList.append(i);
-}
-
-console.log(myLinkedList);
