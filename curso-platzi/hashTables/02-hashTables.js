@@ -11,6 +11,23 @@ class HashTable {
 
         return hash;
     }
+
+    set(key, value) {
+        const addres = this.hashMethod(key);
+        if (!this.data[addres]) {
+            this.data[addres] = [];
+        }
+        this.data[addres].push([key, value]);
+
+        return this.data;
+    }
 }
 
 const myHashTable = new HashTable(50);
+console.log(myHashTable);
+
+myHashTable.set("Italo", 1991);
+console.log(myHashTable);
+
+myHashTable.set("Nati", 1993);
+console.log(myHashTable);
