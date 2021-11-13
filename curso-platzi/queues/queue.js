@@ -7,30 +7,34 @@ class Node {
 
 class MyQueue {
     constructor() {
-        this.top = null;
-        this.bottom = null;
+        this.last = null;
+        this.first = null;
         this.length = 0;
     }
 
     enqueue(value) {
         const newNode = new Node(value);
         if (this.length === 0) {
-            this.top = newNode;
-            this.bottom = newNode;
+            this.last = newNode;
+            this.first = newNode;
         } else {
-            newNode.prev = this.bottom;
-            this.bottom = newNode;
+            newNode.prev = this.first;
+            this.first = newNode;
         }
     }
 
     dequeue() {
-        const firstItem = this.bottom;
-        this.bottom = this.bottom.prev;
+
+        if (this.length === 0) {
+            return;
+        }
+        const firstItem = this.first;
+        this.first = this.first.prev;
 
         return firstItem;
     }
 
     peek() {
-        return this.bottom;
+        return this.first;
     }
 }
