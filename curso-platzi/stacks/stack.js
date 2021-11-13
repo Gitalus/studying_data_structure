@@ -33,6 +33,14 @@ class Stack {
 
         return this;
     }
+
+    pop() {
+        const lastNode = this.top;
+        this.top = this.top.next;
+        this.length--;
+
+        return lastNode;
+    }
 }
 
 const myStack = new Stack();
