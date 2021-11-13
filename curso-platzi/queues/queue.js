@@ -21,6 +21,9 @@ class MyQueue {
             newNode.prev = this.first;
             this.first = newNode;
         }
+        this.length++;
+
+        return this;
     }
 
     dequeue() {
@@ -30,6 +33,7 @@ class MyQueue {
         }
         const firstItem = this.first;
         this.first = this.first.prev;
+        this.length--;
 
         return firstItem;
     }
