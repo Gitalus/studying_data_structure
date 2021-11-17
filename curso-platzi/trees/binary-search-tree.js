@@ -21,7 +21,7 @@ class BinarySearchTree {
         else {
             let currentNode = this.root;
             while (true) {
-                if (currentNode.value > value) {
+                if (value < currentNode.value) { // comparar un 'undefined' siempre dará false, pero si this.root es null, se contará como valor 0 en comparación > o <
                     if (!currentNode.left) {
                         currentNode.left = newNode;
                         return this;
