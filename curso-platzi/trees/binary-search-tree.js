@@ -36,5 +36,13 @@ class BinarySearchTree {
                 }
             }
         }
+
+        // delete(value) {
+
+        // }
+
+        // search(value) {
+
+        // }
     }
 }
